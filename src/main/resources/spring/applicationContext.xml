@@ -66,14 +66,17 @@
 		<bean class="java.net.URI" id="dbUrl">
 			<constructor-arg value="#{systemEnvironment['DATABASE_URL']}" />
 		</bean>
-
-		<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-			<property name="url"
-				value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + @dbUrl.getPath() }" />
-			<property name="username" value="#{ @dbUrl.getUserInfo().split(':')[0] }" />
-			<property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }" />
-		</bean>
-
+<!-- 		<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"> -->
+<!-- 			<property name="url" -->
+<!-- 				value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + @dbUrl.getPath() }" /> -->
+<!-- 			<property name="username" value="#{ @dbUrl.getUserInfo().split(':')[0] }" /> -->
+<!-- 			<property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }" /> -->
+<!-- 		</bean> -->
+		<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+                destroy-method="close" p:driverClass="${jdbc.driver}" p:jdbcUrl="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + @dbUrl.getPath() }"
+                p:user="#{ @dbUrl.getUserInfo().split(':')[0] }" p:password="#{ @dbUrl.getUserInfo().split(':')[1] }"
+                p:acquireIncrement="5" p:idleConnectionTestPeriod="60" p:maxPoolSize="100"
+                p:maxStatements="50" p:minPoolSize="10" />
 		<bean id="entityManagerFactory"
 			class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 			<property name="dataSource" ref="dataSource" />
