@@ -1,6 +1,6 @@
 <div class="hero-unit">
 	<h2>Hello, ${userContext.userFullName}!</h2>
-	<p>CRUD WebApp is a simple web application that do basic operations (create,read,update and delete) on 2 entities: Account and Role.The purpose of this application is to put in practice some nice technologies as:</p>
+	<p>Accounts manager is a simple web application that do basic operations (create,read,update and delete) on 2 entities: Account and Role.The purpose of this application is to put in practice some nice technologies as:</p>
 	<ul>
 		<li>Spring MVC with Rest like url for controllers.</li>
 		<li>Spring Security for user/password authentication.</li>
@@ -11,10 +11,12 @@
 		<li>Apache Tiles for web page templating.</li>
 	</ul>
 	<p>
-		<a class="btn btn-primary btn-large" href="http://www.github.com" >See the project source code on GitHub!</a>
+		<a class="btn btn-primary btn-large" href="https://github.com/maachou/AccountsManager" >See the project source code on GitHub!</a>
 	</p>
 </div>
-
+<div class="page-header">
+  <h1>Application pages:</h1>
+</div>
 <div id="myCarousel" class="carousel slide">
                 <div class="carousel-inner">
                   <div class="item active">
