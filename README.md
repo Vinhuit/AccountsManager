@@ -8,7 +8,7 @@ Accounts manager is a simple web application that do basic operations (create,re
 
 The application is deployed to Heroku at :
 
--  http://accountsmanager.herokuapp.com/login
+-  http://accountsmanager.herokuapp.com
 
 ## Technologies used:
 
